@@ -1,0 +1,30 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pessoa = dict()\r\nficha = list()\r\nresp = 's'\r\nwhile resp != 'n':\r\n    pessoa['nome'] = str(input('Nome:')).strip().title()\r\n    pessoa['idade'] = int(input('Idade:'))\r\n    ficha.append(pessoa.copy())\r\n    for k, v in enumerate(ficha):\r\n        print(f'Nome:{v[\"nome\"]}\\nIdade:{v[\"idade\"]} anos')\r\n        print('=' * 20)\r\n    resp = input('Quer continuar?')\r\n
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	
++++ b/main.py	
+@@ -1,11 +1,14 @@
+ pessoa = dict()
+ ficha = list()
+-resp = 's'
+-while resp != 'n':
++resp = 'sim'
++while resp != 'não':
+     pessoa['nome'] = str(input('Nome:')).strip().title()
+-    pessoa['idade'] = int(input('Idade:'))
++    pessoa['senha'] = int(input('Senha:'))
+     ficha.append(pessoa.copy())
+-    for k, v in enumerate(ficha):
+-        print(f'Nome:{v["nome"]}\nIdade:{v["idade"]} anos')
+-        print('=' * 20)
+-    resp = input('Quer continuar?')
++    pessoa.clear()
++    resp = input('Deseja adicionar mais pessoas?')
++
++print('VOCÊ CADASTROU:')
++for k, v in enumerate(ficha):
++    print(f'Nome: {v["nome"]}\nSenha: {v["senha"]}')
++    print('=' * 20)
